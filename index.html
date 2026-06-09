@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101313" />
+  <title>Ruang Sela — Personal Focus Board</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Ruang Sela">
+        <span class="brand-mark">R</span>
+        <span>
+          <strong>ruang sela</strong>
+          <small>personal focus board</small>
+        </span>
+      </a>
+
+      <div class="topbar-actions">
+        <button class="icon-button" id="soundButton" type="button" aria-label="Toggle ambient mode" title="Ambient mode">
+          <span class="dot"></span>
+          <span id="soundLabel">ambient off</span>
+        </button>
+        <button class="avatar-button" type="button" aria-label="Profile">DN</button>
+      </div>
+    </header>
+
+    <main class="dashboard">
+      <section class="hero card">
+        <div class="hero-copy">
+          <p class="eyebrow" id="todayLabel">Selasa, 9 Juni</p>
+          <h1><span id="greeting">Selamat pagi</span>,<br />pelan-pelan juga sampai.</h1>
+          <p class="hero-description">
+            Tempat kecil untuk memilih satu hal penting, menyelesaikannya, lalu bernapas sebentar.
+          </p>
+
+          <div class="hero-footer">
+            <div class="progress-copy">
+              <strong id="dayProgressText">0%</strong>
+              <span>hari sudah berjalan</span>
+            </div>
+            <div class="progress-track" aria-label="Progress hari">
+              <span id="dayProgressBar"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-orbit" aria-hidden="true">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="orbit-center">
+            <span>01</span>
+            <small>prioritas</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid-main">
+        <article class="focus-card card">
+          <div class="card-heading">
+            <div>
+              <p class="eyebrow">ritual fokus</p>
+              <h2>Satu sesi, satu tujuan.</h2>
+            </div>
+            <span class="status-pill"><i></i> siap mulai</span>
+          </div>
+
+          <label class="focus-input-wrap">
+            <span>Fokus utama</span>
+            <input id="focusInput" type="text" maxlength="70" placeholder="Contoh: rapikan halaman dashboard" autocomplete="off" />
+          </label>
+
+          <div class="timer-wrap">
+            <p id="timerDisplay">25:00</p>
+            <div class="timer-actions">
+              <button class="primary-button" id="startTimer" type="button">mulai sesi</button>
+              <button class="secondary-button" id="resetTimer" type="button">reset</button>
+            </div>
+          </div>
+
+          <div class="timer-presets" aria-label="Pilih durasi fokus">
+            <button class="preset active" data-minutes="25" type="button">25 menit</button>
+            <button class="preset" data-minutes="45" type="button">45 menit</button>
+            <button class="preset" data-minutes="60" type="button">60 menit</button>
+          </div>
+        </article>
+
+        <aside class="side-stack">
+          <article class="quote-card card">
+            <p class="eyebrow">catatan kecil</p>
+            <blockquote id="quoteText">“Tidak semua hari harus penuh. Yang penting ada satu langkah yang benar-benar selesai.”</blockquote>
+            <button id="shuffleQuote" class="text-button" type="button">ganti catatan ↗</button>
+          </article>
+
+          <article class="mood-card card">
+            <div>
+              <p class="eyebrow">ritme hari ini</p>
+              <h3 id="moodTitle">pilih suasana</h3>
+            </div>
+            <div class="mood-options">
+              <button class="mood-button" data-mood="tenang" title="Tenang" type="button">◌</button>
+              <button class="mood-button" data-mood="fokus" title="Fokus" type="button">◐</button>
+              <button class="mood-button" data-mood="penuh energi" title="Penuh energi" type="button">✦</button>
+            </div>
+          </article>
+        </aside>
+      </section>
+
+      <section class="grid-bottom">
+        <article class="task-card card">
+          <div class="card-heading compact">
+            <div>
+              <p class="eyebrow">daftar ringkas</p>
+              <h2>Hal yang perlu dibereskan.</h2>
+            </div>
+            <span class="task-count" id="taskCount">0 selesai</span>
+          </div>
+
+          <form class="task-form" id="taskForm">
+            <input id="taskInput" type="text" maxlength="65" placeholder="Tambah hal kecil..." autocomplete="off" required />
+            <button type="submit" aria-label="Tambah tugas">+</button>
+          </form>
+
+          <ul class="task-list" id="taskList"></ul>
+        </article>
+
+        <article class="note-card card">
+          <div class="card-heading compact">
+            <div>
+              <p class="eyebrow">parkir pikiran</p>
+              <h2>Tulis, lalu lanjut lagi.</h2>
+            </div>
+            <span class="save-state" id="saveState">tersimpan lokal</span>
+          </div>
+          <textarea id="quickNote" maxlength="500" placeholder="Simpan ide, pengingat, atau sesuatu yang tidak ingin dipikirkan sekarang..."></textarea>
+          <div class="note-footer">
+            <span id="noteCounter">0 / 500</span>
+            <button class="text-button" id="clearNote" type="button">bersihkan</button>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <span>ruang sela / dibuat untuk hari yang lebih ringan</span>
+      <span id="clock">00:00</span>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
